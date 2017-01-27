@@ -1,4 +1,4 @@
-FROM jburel/devslave-c7:0.0.1
+FROM jburel/devslave-c7-docker:0.0.1
 
 MAINTAINER OME
 
