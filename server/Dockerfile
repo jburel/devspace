@@ -46,9 +46,9 @@ WORKDIR /tmp/omero-install/linux
 RUN JAVAVER=$JAVAVER ICEVER=$ICEVER PGVER=nopg bash install_centos7_nginx.sh
 
 # install postgres tools
-RUN yum -y install http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-2.noarch.rpm \
+RUN yum -y install http://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm \
     && yum clean all
-RUN yum -y install postgresql94 \
+RUN yum -y install postgresql96 \
     && yum clean all
 
 EXPOSE 4064
