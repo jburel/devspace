@@ -30,7 +30,7 @@
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.2.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -52,6 +52,8 @@
         <disableSubmodules>false</disableSubmodules>
         <recursiveSubmodules>true</recursiveSubmodules>
         <trackingSubmodules>false</trackingSubmodules>
+        <reference></reference>
+        <parentCredentials>false</parentCredentials>
       </hudson.plugins.git.extensions.impl.SubmoduleOption>
       <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
         <relativeTargetDir>src</relativeTargetDir>
@@ -74,5 +76,7 @@ $HOME/.local/bin/scc $MERGE_COMMAND -S $STATUS --push $PUSH_BRANCH</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
-  <buildWrappers/>
+  <buildWrappers>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+  </buildWrappers>
 </project>

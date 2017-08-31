@@ -1,19 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson>
-  <disabledAdministrativeMonitors/>
-  <version>1.651.3</version>
+  <disabledAdministrativeMonitors>
+    <string>jenkins.security.s2m.MasterKillSwitchWarning</string>
+  </disabledAdministrativeMonitors>
+  <version>2.46.2</version>
   <numExecutors>0</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
-  <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
-  <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
+    <permission>hudson.model.Computer.Connect:anonymous</permission>
+    <permission>hudson.model.Computer.Create:anonymous</permission>
+    <permission>hudson.model.Hudson.Administer:devspace</permission>
+    <permission>hudson.model.Hudson.Read:anonymous</permission>
+    <permission>hudson.model.Item.Read:anonymous</permission>
+    <permission>hudson.model.View.Read:anonymous</permission>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.LegacySecurityRealm"/>
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
-  <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter" plugin="antisamy-markup-formatter@1.1">
-    <disableSyntaxHighlighting>false</disableSyntaxHighlighting>
-  </markupFormatter>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
   <jdks>
     <jdk>
       <name>JDK8</name>
@@ -22,7 +29,7 @@
         <hudson.tools.InstallSourceProperty>
           <installers>
             <hudson.tools.JDKInstaller>
-              <id>jdk-8u121-oth-JPR</id>
+              <id>jdk-8u131-oth-JPR</id>
               <acceptLicense>true</acceptLicense>
             </hudson.tools.JDKInstaller>
           </installers>
@@ -38,16 +45,19 @@
   <views>
     <hudson.model.AllView>
       <owner class="hudson" reference="../../.."/>
-      <name>All</name>
-      <description>See &lt;a href=&quot;https://github.com/openmicroscopy/devspace#job-workflow&quot;&gt;Job workflow&lt;/a&gt; for more information</description>
+      <name>all</name>
+      <description>See Job workflow https://github.com/openmicroscopy/devspace#job-workflow for more information</description>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
     </hudson.model.AllView>
   </views>
-  <primaryView>All</primaryView>
+  <primaryView>all</primaryView>
   <slaveAgentPort>50000</slaveAgentPort>
-  <label>FOO</label>
+  <label></label>
+  <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
+    <excludeClientIPFromCrumb>true</excludeClientIPFromCrumb>
+  </crumbIssuer>
   <nodeProperties/>
   <globalNodeProperties/>
 </hudson>
