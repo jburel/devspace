@@ -105,7 +105,14 @@ mv $WORKSPACE/$DIST $OMERO_DIST
 virtualenv $WORKSPACE/omero-virtualenv --system-site-packages
 source $WORKSPACE/omero-virtualenv/bin/activate
 
-pip install omego
+pip install https://github.com/ome/zeroc-ice-py-manylinux/releases/download/0.1.0/zeroc_ice-3.6.5-cp36-cp36m-manylinux2010_x86_64.whl
+pip install -U pip future
+pip install -U --pre omego
+pip install tables
+pip install pillow
+pip install jinja2
+pip install reportlab
+pip install markdown
 pip install git+git://github.com/snoopycrimecop/omero-metadata.git@$MERGE_PUSH_BRANCH#egg=omero-metadata
 
 ## LOAD CONFIG
