@@ -68,6 +68,8 @@ RUN update-alternatives --set java java-11-openjdk.x86_64
 EXPOSE 14064
 EXPOSE 14063
 
+COPY gradle.properties /home/omero/.gradle
+
 ADD ./run.sh /tmp/run.sh
 RUN chown omero:omero /tmp/run.sh
 RUN chmod a+x /tmp/run.sh
