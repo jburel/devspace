@@ -13,3 +13,5 @@ jobs:
         with:
           template: .github/PULL_REQUEST_TEMPLATE.md
           get_diff: true
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
