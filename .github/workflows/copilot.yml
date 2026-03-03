@@ -24,6 +24,7 @@ jobs:
           COPILOT_GITHUB_TOKEN: ${{ secrets.PERSONAL_COPILOT_GITHUB_TOKEN }}
         run: |
           TODAY=$(date +%Y-%m-%d)
+          gh agent-task create --help
           # copilot --model gpt-5.2
           #copilot help
-          copilot --autopilot --yolo --max-autopilot-continues 10 --model gpt-5.2 -p "Review the git log for this repository and write a bullet point summary of all code changes that were made today ($TODAY). Include a brief description of what was changed."
+          #copilot --autopilot --yolo --max-autopilot-continues 10 --model gpt-5.2 -p "Review the git log for this repository and write a bullet point summary of all code changes that were made today ($TODAY). Include a brief description of what was changed."
