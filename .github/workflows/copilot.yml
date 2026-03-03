@@ -26,4 +26,4 @@ jobs:
           TODAY=$(date +%Y-%m-%d)
           # copilot --model gpt-5.2
           #copilot help
-          copilot --model gpt-5.2 -p "Review the git log for this repository and write a bullet point summary of all code changes that were made today ($TODAY). Include a brief description of what was changed." --allow-tool 'shell(git)'
+          copilot --autopilot --yolo --max-autopilot-continues 10 -p "Review the git log for this repository and write a bullet point summary of all code changes that were made today ($TODAY). Include a brief description of what was changed."
