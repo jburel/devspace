@@ -13,9 +13,11 @@ jobs:
       - name: Set up Node.js environment
         uses: actions/setup-node@v4
 
-      - name: Install Copilot CLI
-        run: npm install -g @github/copilot
-
+      #- name: Install Copilot CLI
+      #  run: npm install -g @github/copilot
+      - name: Install Copilot CLI 
+        run: |
+          curl -fsSL https://gh.io/copilot-install | bash
       - name: Run Copilot CLI
         shell: bash
         env:
