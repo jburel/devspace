@@ -51,14 +51,11 @@ cloudbees-folder
 # Workflow
 # See: https://github.com/jenkinsci/workflow-plugin/blob/master/demo/plugins.txt
 durable-task
-ace-editor
-jquery-detached
 lockable-resources
 workflow-aggregator
 workflow-api
 workflow-basic-steps
 workflow-cps
-workflow-cps-global-lib
 workflow-durable-task-step
 workflow-job
 workflow-multibranch
@@ -85,14 +82,11 @@ docker-commons
 
 credentials-binding
 plain-credentials
-handlebars
-momentjs
 
 # Robot
 robot
 
 # Utils
-greenballs
 timestamper
 jobConfigHistory
 rundeck
